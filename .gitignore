@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+
+/flask-microservices-users/project/include/
+/flask-microservices-users/project/bin/
+/flask-microservices-users/project/lib/
