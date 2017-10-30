@@ -4,3 +4,4 @@
 /flask-microservices-users/project/include/
 /flask-microservices-users/project/bin/
 /flask-microservices-users/project/lib/
+flask-microservices-users/project/__pycache__/
