@@ -15,7 +15,7 @@ services:
 
   users-service:
     container_name: users-service
-    build: https://github.com/SamR1/tuto-microservices.git:#master:flask-microservices-users
+    build: https://github.com/SamR1/tuto-microservices.git#master:flask-microservices-users/
     ports:
       - 5001:5000 # expose ports - HOST:CONTAINER
     environment:
