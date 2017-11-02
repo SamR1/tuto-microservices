@@ -9,15 +9,32 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      users: []
+      users: [],
+      username: '',
+      email: ''
     }
   }
   componentDidMount() {
     this.getUsers();
   }
+  handleChange(event) {
+    const obj = {};
+    obj[event.target.name] = event.target.value;
+    this.setState(obj);
+  }
   getUsers() {
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
     .then((res) => { this.setState({ users: res.data.data.users }); })
+    .catch((err) => { console.log(err); })
+  }
+  addUser(event) {
+    event.preventDefault();
+    const data = {
+      username: this.state.username,
+      email: this.state.email
+    };
+    axios.post(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`, data)
+    .then((res) => { console.log(res); })
     .catch((err) => { console.log(err); })
   }
   render() {
@@ -28,7 +45,12 @@ class App extends Component {
             <br/>
             <h1>All Users</h1>
             <hr/><br/>
-            <AddUser/>
+            <AddUser
+              username={this.state.username}
+              email={this.state.email}
+              handleChange={this.handleChange.bind(this)}
+              addUser={this.addUser.bind(this)}
+            />
             <br/>
             <UsersList users={this.state.users}/>
           </div>
