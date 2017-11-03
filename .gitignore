@@ -7,3 +7,5 @@
 /flask-microservices-users/project/__pycache__/
 /flask-microservices-users/project/api/__pycache__/
 /flask-microservices-users/project/tests/__pycache__/
+/flask-microservices-users/migrations/__pycache__/
+/flask-microservices-users/migrations/versions/__pycache__/
