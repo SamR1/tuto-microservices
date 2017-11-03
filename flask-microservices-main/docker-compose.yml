@@ -27,3 +27,17 @@ services:
         condition: service_healthy
     links:
       - users-db
+
+  web-service:
+    container_name: web-service
+    build: https://github.com/SamR1/tuto-microservices.git#master:flask-microservices-client/
+    ports:
+      - '3007:3000' # expose ports - HOST:CONTAINER
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
+    depends_on:
+      users-service:
+        condition: service_started
+    links:
+      - users-service
