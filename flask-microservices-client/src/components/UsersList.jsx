@@ -15,7 +15,7 @@ const UsersList = (props) => {
         })
       }
     </div>
-  )
+  );
 };
 
 export default UsersList;

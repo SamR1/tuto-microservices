@@ -31,7 +31,7 @@ const AddUser = (props) => {
             value="Submit"
         />
     </form>
-  )
+  );
 };
 
 export default AddUser;
