@@ -21,7 +21,8 @@ class App extends Component {
         username: '',
         email: '',
         password: ''
-      }
+      },
+      isAuthenticated: false
     };
   }
   componentDidMount() {
@@ -71,11 +72,13 @@ class App extends Component {
     axios.post(url, data)
     .then((res) => {
       this.setState({
-        formData: {username: '', email: '', password: '' },
+        formData: {username: '', email: '', password: ''},
         username: '',
-        email: ''
+        email: '',
+        isAuthenticated: true
       });
       window.localStorage.setItem('authToken', res.data.auth_token);
+      this.getUsers();
     })
     .catch((err) => { console.log(err); })
   }
@@ -116,6 +119,7 @@ class App extends Component {
                     formData={this.state.formData}
                     handleFormChange={this.handleFormChange.bind(this)}
                     handleUserFormSubmit={this.handleUserFormSubmit.bind(this)}
+                    isAuthenticated={this.state.isAuthenticated}
                   />
                 )} />
                 <Route exact path='/login' render={() => (
@@ -124,6 +128,7 @@ class App extends Component {
                     formData={this.state.formData}
                     handleFormChange={this.handleFormChange.bind(this)}
                     handleUserFormSubmit={this.handleUserFormSubmit.bind(this)}
+                    isAuthenticated={this.state.isAuthenticated}
                   />
                 )} />
               </Switch>
