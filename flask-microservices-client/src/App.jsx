@@ -22,7 +22,7 @@ class App extends Component {
         email: '',
         password: ''
       }
-    }
+    };
   }
   componentDidMount() {
     this.getUsers();
@@ -30,7 +30,7 @@ class App extends Component {
   getUsers() {
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
     .then((res) => { this.setState({ users: res.data.data.users }); })
-    .catch((err) => { console.log(err); })
+    .catch((err) => { console.log(err); });
   }
   addUser(event) {
     event.preventDefault();
@@ -43,7 +43,7 @@ class App extends Component {
       this.getUsers();
       this.setState({ username: '', email: '' });
     })
-    .catch((err) => { console.log(err); })
+    .catch((err) => { console.log(err); });
   }
   handleChange(event) {
     const obj = {};
@@ -93,8 +93,8 @@ class App extends Component {
           </div>
         </div>
       </div>
-    )
-  };
+    );
+  }
 }
 
-export default App
+export default App;

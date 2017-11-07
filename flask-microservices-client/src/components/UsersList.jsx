@@ -11,7 +11,7 @@ const UsersList = (props) => {
               className="well"
             >{user.username}
             </h4>
-          )
+          );
         })
       }
     </div>

@@ -51,4 +51,4 @@ const Form = (props) => {
   );
 };
 
-export default Form
+export default Form;
