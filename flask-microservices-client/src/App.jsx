@@ -70,7 +70,12 @@ class App extends Component {
     const url = `${process.env.REACT_APP_USERS_SERVICE_URL}/auth/${formType}`;
     axios.post(url, data)
     .then((res) => {
-      console.log(res.data);
+      this.setState({
+        formData: {username: '', email: '', password: '' },
+        username: '',
+        email: ''
+      });
+      window.localStorage.setItem('authToken', res.data.auth_token);
     })
     .catch((err) => { console.log(err); })
   }
