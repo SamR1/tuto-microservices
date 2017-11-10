@@ -11,10 +11,6 @@ inspect() {
 docker-compose run users-service python manage.py test
 inspect $? users-service
 
-cd ../flask-microservices-client
-npm test
-inspect $? e2e
-
 if [ -n "${fails}" ];
   then
     echo "Tests failed: ${fails}"
