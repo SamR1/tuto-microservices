@@ -1,7 +1,0 @@
-{
-  "name": "flask-microservices-main",
-  "dependencies": {
-    "testcafe": "^0.16.1"
-  },
-  "scripts": { "test": "testcafe firefox e2e/" }
-}
