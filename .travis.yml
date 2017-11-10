@@ -23,7 +23,7 @@ before_script:
 script:
   - psql -c 'create database users_test;' -U postgres
   - docker-compose run users-service python manage.py recreate_db
-  - docker-compose run users-service python manage.py test
+  - sh test.sh
 
 after_script:
   - docker-compose down
